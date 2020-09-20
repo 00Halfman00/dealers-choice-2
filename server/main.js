@@ -15,3 +15,5 @@ syncAndSeed().then(() => {
         `)
   );
 });
+
+syncAndSeed();
