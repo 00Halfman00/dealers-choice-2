@@ -1,5 +1,5 @@
-const { syncAndSeed } = require('./conn');
-const Fellow = require('./fellows');
+const { syncAndSeed , Fellow } = require('./conn');
+//const Fellow = require('./fellows');
 
 module.exports = {
   syncAndSeed,

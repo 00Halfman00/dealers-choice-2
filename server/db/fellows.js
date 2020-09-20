@@ -1,10 +1,13 @@
-const { STRING } = require('sequelize');
+// const { STRING } = require('sequelize');
+// const  {con}  = require('./conn');
+// console.log('conn ', con)
 
-const Fellow = conn.define('fellow', {
-  name: {
-    type: STRING,
-    allowNull: false,
-  },
-});
 
-module.exports = Fellow;
+// const Fellow = con.define('fellow', {
+//   name: {
+//     type: STRING,
+//     allowNull: false,
+//   },
+// });
+
+// module.exports = Fellow;

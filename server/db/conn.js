@@ -1,15 +1,25 @@
 const Sequelize = require('sequelize');
-const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/fellows');
-const Fellow = require('./fellows')
+const { STRING } = require('sequelize');
+const con = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/fellows');
+
+
+
+const Fellow = con.define('fellow', {
+    name: {
+      type: STRING,
+      allowNull: false,
+    },
+  });
+
 
 const syncAndSeed = async () => {
-    await conn.sync( { force: true } );
-    const [ moe, larry, curly, Shemp ] = await Promise.all( [ 
-        Fellow.create( { name : Moe } ),
-        Fellow.create( { name : Larry } ),
-        Fellow.create( { name : Curly } ),
-        Fellow.create( { name : Shemp } )
+    await con.sync( { force: true } );
+    const [ moe, larry, curly, shemp ] = await Promise.all( [ 
+        Fellow.create( { name : 'moe'} ),
+        Fellow.create( { name : 'larry' } ),
+        Fellow.create( { name : 'curly' } ),
+        Fellow.create( { name : 'shemp' } )
      ] )
 };
 
-module.exports = { syncAndSeed };
+module.exports = { syncAndSeed, Fellow };

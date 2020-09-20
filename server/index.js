@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //static file-serving middleware
-app.use(express.static(path.join(__dirnmame, '..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 //routes accessed via AJAX are prepended with /api, to isolate from GET /* wildcard
 app.use('/api', require('./api'));
