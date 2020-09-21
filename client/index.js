@@ -1,7 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-//import Main from './Main'
+import { Provider } from 'react-redux';
+import Main from './components/Main.js';
+//import store from '/store';
 
 render(
-    <h2>Howdy</h2>, document.querySelector('#app')
-)
+  <Provider store={store}>
+    <h2>Howdy</h2>
+    <Main />
+  </Provider>,
+  document.querySelector('#app')
+);
