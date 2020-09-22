@@ -5,6 +5,7 @@ import Fellows from './components/Fellows.js';
 import { Provider, connect } from 'react-redux';
 import CreateFellow from './components/CreateFellow';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import UpdateDelete from './components/UpdateDelete';
 
 class _App extends Component {
   constructor() {
@@ -25,11 +26,15 @@ class _App extends Component {
             <li>
               <Link to='/fellows'>Fellows ({this.props.count})</Link>
             </li>
+            <li>
+              <Link to='/create'>Create Fellow</Link>
+            </li>
           </ul>
         </div>
         <div>
-          <Route path="/create" exact component={CreateFellow}/>
+          <Route path="/create"  component={CreateFellow}/>
           <Route path="/fellows" exact component={Fellows} />
+          <Route path="/fellows/:id"  component={UpdateDelete}/>
         </div>
       </Router>
     );
@@ -49,7 +54,7 @@ const App = connect(
 
 render(
   <Provider store={store}>
-    <h2>Howdy</h2>
+    <h2>your welcome</h2>
     <App />
   </Provider>,
   document.querySelector('#app')

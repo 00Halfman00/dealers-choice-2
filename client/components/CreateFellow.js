@@ -12,7 +12,7 @@ class CreateFellow extends Component {
 
   saveFellow(ev) {
     ev.preventDefault();
-    this.props.createFellow({ name: this.state.name });
+    this.props.createFellow({ name: this.state.name, history: this.props.history });
   }
 
   render() {
@@ -25,7 +25,7 @@ class CreateFellow extends Component {
             value={name}
             onChange={(ev) => this.setState({ name: ev.target.value })}
           />
-          <button>Create Fellow</button>
+          <button disabled={ '' }>Create Fellow</button>
         </form>
       </div>
     );

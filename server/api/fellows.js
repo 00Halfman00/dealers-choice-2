@@ -45,7 +45,7 @@ router.put('/:id', async (req, res, next) => {
 });
 
 //delete fellow
-router.delete('/', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
     await Fellow.destroy({ where: { id: req.params.id } });
     res.sendStatus(204);

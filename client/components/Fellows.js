@@ -1,13 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-const Fellows = ({ fellows }) => {
-  console.log('in Fellows component', fellows);
+const Fellows = ({ fellows, match }) => {
+  //console.log('in Fellows component', fellows);
   return (
     <div>
       <ul>
         {fellows.map((fellow) => {
-          return (<li key={fellow.id}>{fellow.name}</li>)
+          return (
+            <li
+              key={fellow.id}
+              className={fellow.id === match.params.id ? 'selected' : ''}
+            >
+              <Link to={`/fellows/${fellow.id}`}>{fellow.name}</Link>
+            </li>
+          );
         })}
       </ul>
     </div>
@@ -15,10 +23,8 @@ const Fellows = ({ fellows }) => {
 };
 
 export default connect(({ fellows }) => {
-  console.log(fellows);
+  //console.log(fellows);
   return {
     fellows,
   };
 })(Fellows);
-
-

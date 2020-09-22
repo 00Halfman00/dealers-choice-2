@@ -44,7 +44,7 @@ const _deleteFellow = (id) => {
 const createFellow = ({ name }) => {
   return async (dispatch) => {
     const fellow = await axios.post('/api/fellows', { name });
-    disdpatch(_createFellow(fellow.data));
+    dispatch(_createFellow(fellow.data));
   };
 };
 
