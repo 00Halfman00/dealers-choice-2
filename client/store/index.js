@@ -41,10 +41,11 @@ const _deleteFellow = (id) => {
 
 //////////////THUNKS///////////////CRUD
 
-const createFellow = ({ name }) => {
+const createFellow = ({ name, history}) => {
   return async (dispatch) => {
     const fellow = await axios.post('/api/fellows', { name });
     dispatch(_createFellow(fellow.data));
+    history.push('/fellows');
   };
 };
 
@@ -55,17 +56,19 @@ const readFellows = () => {
   };
 };
 
-const updateFellow = ({ name, id }) => {
+const updateFellow = ({ name, id, history }) => {
   return async (dispatch) => {
     const fellow = await axios.put(`/api/fellows/${id}`, { name });
     dispatch(_updateFellow(fellow.data));
+    history.push('/fellows')
   };
 };
 
-const deleteFellow = ({ id }) => {
+const deleteFellow = ({ id, history }) => {
   return async (dispatch) => {
-    const fellow = await axios.delete(`/api/fellows/${id}`);
-    dispatch(_deleteFellow(fellow.data));
+    await axios.delete(`/api/fellows/${id}`);
+    dispatch(_deleteFellow(id));
+    history.push('/fellows')
   };
 };
 

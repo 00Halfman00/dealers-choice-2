@@ -24,7 +24,7 @@ app.get('/', (req, res, next) => {
 //Error middleware
 app.use((req, res, next, err) => {
   console.error(err, typeof next);
-  consoler.error(err.stack);
+  console.error(err.stack);
   res.status(err.status || 500).send(err.message || 'Internal Server error');
 });
 
